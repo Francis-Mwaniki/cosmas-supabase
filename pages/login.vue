@@ -1,5 +1,6 @@
-<template>
+<template>    
  <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 bg-slate-400">
+ 
       <div class="mx-auto max-w-lg">
       <h1 class=" items-center justify-center flex  text-4xl m-7">Log In</h1>
       <form @submit.prevent="handleSubmit" class=" bg-slate-900 flex items-center justify-center flex-col text-white">
@@ -37,7 +38,7 @@ export default {
         alert("Password must be at least 8 characters long");
         return;
       }
-      const { data, error } = await supabase.auth.signInWithEmail({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: this.email,
         password: this.password,
       });
@@ -48,7 +49,7 @@ export default {
       } else {
         this.user = data.user.email;
         setTimeout(() => {
-          this.$router.push("/index");
+          this.$router.push("/products");
           this.loading = false;
         }, 2000);
         //this.$router.push("/Login");
