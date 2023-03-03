@@ -3,15 +3,15 @@
  
       <div class="mx-auto max-w-lg">
       <h1 class=" items-center justify-center flex  text-4xl m-7">Log In</h1>
-      <form @submit.prevent="handleSubmit" class=" bg-slate-900 flex items-center justify-center flex-col text-white">
+      <form @submit.prevent="handleSubmit" class=" bg-slate-600 rounded-lg flex items-center justify-center flex-col text-white">
         <label for="email">Email:</label>
-        <input id="email" type="email" v-model="email" class=" text-black" required />
+        <input id="email" type="email" v-model="email" class=" rounded-md text-black" required />
         <label for="password">Password:</label>
-        <input id="password" type="password" v-model="password" class=" text-black"  required />
+        <input id="password" type="password" v-model="password" class=" rounded-md text-black"  required />
         <button type="submit" class=" bg-blue-700 text-white p-3 m-3 rounded-md">Log In</button>
       </form>
     </div>
-    </div>
+  </div>
   </template>
   
   <script>

@@ -90,7 +90,7 @@
               {{ loading ? "Loading..." : "Sign Up" }}
             </button>
   
-            <p class="text-center text-sm text-gray-500">
+            <p class="text-center text-sm text-white">
               Already have an account?
               <NuxtLink to="/login" class="underline">Sign In</NuxtLink>
             </p>

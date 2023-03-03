@@ -1,12 +1,12 @@
 <template>
-    <main class="  bg-slate-500 items-center justify-center flex">
+    <main class="  bg-slate-500 items-center justify-center flex ">
     <div class="">
     <h1 class=" text-yellow-400 m-6">MANAGE YOUR WINDOW SHOPPING </h1>
     <div class=" bg-slate-900 text-white items-center justify-center flex flex-col rounded-lg">
     
       <form @submit.prevent="addProduct" class="  items-center justify-center flex flex-col">
         <label for="">Enter new product</label>
-        <input type="text" placeholder="name" v-model="newProduct.name" class=" rounded-md p-3 m-4 text-black" />
+        <input type="text" placeholder=" product name" v-model="newProduct.name" class=" rounded-md p-3 m-4 text-black" />
         <label for="">Price</label>
         <input type="number" placeholder="price" v-model="newProduct.price" class=" rounded-md p-3 m-4 text-black" />
         <button type="submit" class=" bg-blue-700 p-3 rounded-md mb-4">add product</button>
