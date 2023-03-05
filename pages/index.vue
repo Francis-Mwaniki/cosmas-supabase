@@ -1,6 +1,6 @@
 <template>
     <div>
- <h1 class=" text-white items-center justify-center">MAKE YOURSELF COMFORTABLE </h1>
+
  
    <Signup />
  
