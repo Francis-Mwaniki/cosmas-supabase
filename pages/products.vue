@@ -1,6 +1,7 @@
 <template>
   <main class="bg-slate-900 items-center justify-center flex">
     <div class="">
+
       <h1 class="text-yellow-400 m-6 justify-center items-center flex mx-auto text-3xl">
         MANAGE YOUR WINDOW SHOPPING
       </h1>
@@ -22,6 +23,7 @@
         >
           {{ err }}!
         </div>
+ 
 
         <form
           @submit.prevent="addItemsToArray"
@@ -176,7 +178,7 @@ export default {
         this.newProduct.price = 0;
       }
     },
-    async deleteProduct(id) {
+ 
       const { error } = await supabase.from("products").delete().match({ id });
       if (error) {
         alert(error.message);
