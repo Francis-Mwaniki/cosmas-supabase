@@ -1,7 +1,8 @@
 <template>
-    <main class=" bg-slate-600">
+    <main class=" bg-slate-900">
       
       <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+        <h1 class=" text-white items-center justify-center flex  mx-auto text-3xl font-sans py-2">MAKE YOURSELF COMFORTABLE </h1>
         <div class="mx-auto max-w-lg">
            
           <!-- success alert  -->
@@ -29,7 +30,7 @@
           </div>
           <form
             action=""
-            class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl"
+            class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl bg-slate-800 text-white"
             @submit.prevent="register"
           >
             <p class="text-lg font-medium">Sign up men</p>

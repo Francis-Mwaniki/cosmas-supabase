@@ -1,15 +1,78 @@
 <template>    
- <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 bg-slate-400">
+ <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 bg-slate-900">
  
       <div class="mx-auto max-w-lg">
-      <h1 class=" items-center justify-center flex  text-4xl m-7">Log In</h1>
-      <form @submit.prevent="handleSubmit" class=" bg-slate-600 rounded-lg flex items-center justify-center flex-col text-white">
-        <label for="email">Email:</label>
-        <input id="email" type="email" v-model="email" class=" rounded-md text-black" required />
-        <label for="password">Password:</label>
-        <input id="password" type="password" v-model="password" class=" rounded-md text-black"  required />
-        <button type="submit" class=" bg-blue-700 text-white p-3 m-3 rounded-md">Log In</button>
-      </form>
+      <h1 class=" items-center justify-center flex  text-4xl m-7 text-white">Log In</h1>
+      <!-- Error alert  -->
+      <div
+          class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+          role="alert"
+          v-show="success"
+        >
+          {{ success }} created!
+        </div>
+        <!-- warning alert -->
+        <div
+          class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          role="alert"
+          v-show="err"
+        >
+          {{ err }}!
+        </div>
+     
+      <form
+            action=""
+            class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl bg-slate-800 text-white"
+            @submit.prevent="handleSubmit"
+          >
+            <p class="text-lg font-medium">Welcome Back</p>
+  
+            <div>
+              <label for="email" class="text-sm font-medium">Email</label>
+  
+              <div class="relative mt-1">
+                <input
+                  type="email"
+                  id="email"
+                  v-model="email"
+                  class="w-full rounded-lg ring bg-slate-100 p-4 pr-12 text-sm shadow-sm"
+                  placeholder="Enter email"
+                />
+   
+              </div>
+            </div>
+            <div>
+              <label for="password" class="text-sm font-medium">Password</label>
+  
+              <div class="relative mt-1">
+                <input
+                  type="password"
+                  id="password"
+                  v-model="password"
+                  class="w-full rounded-lg ring bg-slate-100 p-4 pr-12 text-sm shadow-sm"
+                  placeholder="Enter password"
+                />
+   
+              </div>
+            </div>
+  
+           
+  
+            <button
+              type="submit"
+              class="block w-full rounded-lg px-5 py-3 text-sm font-medium text-white"
+                :class="loading? 'bg-gray-500' : 'bg-blue-500'"
+            
+              :disabled="loading"
+            >
+              {{ loading ? "Loading..." : "Sign Up" }}
+            </button>
+  
+            <p class="text-center text-sm text-white">
+              Don't Have an account?
+              <NuxtLink to="/" class="underline">Sign Up</NuxtLink>
+            </p>
+          </form>
     </div>
   </div>
   </template>
@@ -23,7 +86,10 @@ export default {
     return {
       email: "",
       name: "",
+      loading: false,
       password: "",
+      success: "",
+      err: "",
        
     };
   },
@@ -48,6 +114,7 @@ export default {
         console.log(error.message);
       } else {
         this.user = data.user.email;
+        this.success = data.user.email;
         setTimeout(() => {
           this.$router.push("/products");
           this.loading = false;
