@@ -6,10 +6,10 @@
     
       <form @submit.prevent="addProduct" class="  items-center justify-center flex flex-col">
         <label for="">Enter new product</label>
-        <input type="text" placeholder=" product name" v-model="newProduct.name" class=" rounded-md p-3 m-4 text-black" />
+        <input type="text" placeholder=" product name" v-model="newProduct.name" class=" rounded-md p-3 m-4 text-black" required />
         <label for="">Price</label>
         <input type="number" placeholder="price" v-model="newProduct.price" class=" rounded-md p-3 m-4 text-black" />
-        <button type="submit" class=" bg-blue-700 p-3 rounded-md mb-4">add product</button>
+        <button type="submit" class=" bg-blue-700 p-3 rounded-md mb-4 hover:scale-75">add product</button>
       </form> 
       <button @click="deleteProduct(product.id)">Delete</button>
 
@@ -52,10 +52,14 @@
         } else {
           // Add the new product to the products array
           this.products.push(data[0]);
-          // Clear the form inputs
+      
           this.newProduct.name = "";
           this.newProduct.price = 0;
         }
+        if(this.product.length>1){
+          this.err='place something here'
+          return
+        } 
       },
       async deleteProduct(id) {
       const { error } = await supabase.from("products").delete().match({ id });
